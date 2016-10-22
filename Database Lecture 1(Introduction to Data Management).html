@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Introduction to Data Management</title>
+</head>
+<body>
+<div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 data-anchor-id="96f7" id="introduction-to-data-management">Introduction to Data Management</h1><div class="md-section-divider"></div><h3 data-anchor-id="6rzz" id="fundamentals-of-databases">Fundamentals of Databases</h3><p data-anchor-id="whw2">Alvaro A A Fernandes, SCS, UoM <br>
+[COMP23111 Lecture 01 of 12]</p><hr><div class="md-section-divider"></div><h2 data-anchor-id="shki" id="database-management-systems">Database Management Systems</h2><ul data-anchor-id="ou1z">
+<li>Database management systems (DBMSs)can be seen in the broader context of software engineering strategies.</li>
+<li>Engineering software is hard and costly.</li>
+<li>It is not cost-effective to develop every piece of software <br>
+<ul><li>from scratch</li>
+<li>in a bespoke way</li></ul></li>
+<li>We factor out certain functionalities into software products that act as service providers for applications. <br>
+<ul><li>We don't build bespoke operating systems (OSs) from scratch.</li>
+<li>The services they provide are universally useful and comprise a stable set</li></ul></li>
+<li>DBMSs, like OSs, factor out functionalities as services that they provide for applications because it has been shown over decades that <br>
+<ul><li>data-related services are universally useful</li>
+<li>there is a stable set of them</li></ul></li>
+<li>For that, DBMSs enforce <br>
+<ul><li>several principles (such as logical/physical independence)</li>
+<li>using advanced techniques (such as transaction and recovery management)</li>
+<li>that emerge to software engineers as a design methodology</li></ul></li>
+<li>This is what we'll learn in this course unit.</li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="e55f" id="how-do-we-view-data-how-should-we-manage-it">How do we view data? How should we manage it?</h2><ul data-anchor-id="rhfg">
+<li>Data is an asset, as crucial to an organization as capital or human resources</li>
+<li>A database management systems (DBMS) is a sophisticated tool for managing data intra- and inter-organizationally.</li>
+<li>It exposes services that allow people and applications to have a single, unified view of the organization through its data assets.</li>
+</ul><p data-anchor-id="yg8w"><img src="https://raw.githubusercontent.com/FengtingSun/Third-Year-Project/Pictures/1.png" alt="DBMS Flow Chart" title=""></p><div class="md-section-divider"></div><h2 data-anchor-id="ykp4" id="where-are-dbmss-used">Where are DBMSs used?</h2><ul data-anchor-id="uh1r">
+<li>Inside organizations: to support front-end and back-end business processes</li>
+<li>Across organizations: to allow cooperation and coordination <br>
+<img src="https://raw.githubusercontent.com/FengtingSun/Third-Year-Project/Pictures/2.png" alt="DBMS"></li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="11ne" id="why-dbmss-why-not-use-files">Why DBMSs? Why not use files?</h2><p data-anchor-id="3sl3"><img src="https://raw.githubusercontent.com/FengtingSun/Third-Year-Project/Pictures/3.png" alt="The reason of using DBMS" title=""></p><ul data-anchor-id="3xvx">
+<li>The applications that matter to an organization change <br>
+faster than the data they use.</li>
+<li>Better to loosely couple application and data.</li>
+<li>This also allows decoupling a logical view of data from storage technology and formats.</li>
+<li>A DBMS enables such decoupling, so applications can change as needed.</li>
+<li>A DBMS therefore lowers the cost of developing new applications.</li>
+<li>A DBMS offers a set of sophisticated services beyond storage: <br>
+<ul><li>Efficient, scalable querying and updating</li>
+<li>Concurrent, fault-tolerant transactions</li>
+<li>Privacy, and role-based access and authorization control</li></ul></li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="7lay" id="how-do-different-levels-of-abstraction-in-dbmss-work">How do different levels of abstraction in DBMSs work?</h2><ul data-anchor-id="zdfa">
+<li><p>Physical</p>
+
+<ul><li>formats,records,files, clustering, indexes, compression, replication, redundancy</li>
+<li>capturedbyastorage model <br>
+<img src="https://raw.githubusercontent.com/FengtingSun/Third-Year-Project/Pictures/4.png" alt="DBMS" title=""> <br>
+<hr></li></ul></li>
+<li><p>Logical</p>
+
+<ul><li>what applications need <br>
+<ul><li>supplier, product, stock_unit, customer, order, payment, etc.</li>
+<li>employee, stores, banker, accounts_payable, accounts_receivable, etc.</li></ul></li>
+<li>captured by a (logical/ conceptual) data model <br>
+<img src="https://raw.githubusercontent.com/FengtingSun/Third-Year-Project/Pictures/5.png" alt="DBMS" title=""> <br>
+<hr></li></ul></li>
+<li><p>View</p>
+
+<ul><li>Human resource applications do not see balances in bank account</li>
+<li>Accountancy applications do not see employee salaries</li>
+<li>captured by a database application model <br>
+<img src="https://raw.githubusercontent.com/FengtingSun/Third-Year-Project/Pictures/6.png" alt="DBMS" title=""></li></ul></li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="4l8i" id="what-is-a-logical-data-model">What is a (logical) data model?</h2><ul data-anchor-id="lhy7">
+<li>A formal construct for describing data, their relationship, semantics and constraints</li>
+<li>Relational is the most widely-used <br>
+<ul><li>rowsofcolumnsorganizedin <br>
+tables that may reference one another</li>
+<li>iftheydo,thennodangling allowed</li></ul></li>
+<li>Plus special database languages forinteraction <br>
+<ul><li>e.g.,relationalalgebra</li>
+<li>A DBMS supports one (or more) data models</li>
+<li>The Oracle DBMS, e.g., supports <br>
+<ul><li>relational</li>
+<li>object-relational</li>
+<li>XML-based</li>
+<li>document-based</li></ul></li>
+<li>using SQL, XQuery, etc.</li></ul></li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="uuln" id="what-are-schemas-and-instances">What are schemas and instances?</h2><ul data-anchor-id="jgo2">
+<li>Each data model defines <br>
+<ul><li>whetherthereisadistinct notion of a schema (e.g., recent data models don't)</li>
+<li>whattheschemaisallowedto declare (e.g., which structures and which constraints)</li></ul></li>
+<li>Then, instances must be valid w.r.t. the schema: <br>
+<ul><li>must have compatible structure</li>
+<li>must satisfy the constraints</li></ul></li>
+<li>A schema defines the logical structure of the database <br>
+<strong>share(account,customer)</strong></li>
+<li>An instance is the actual content of the database at a particular point in time <br>
+<strong>share(015467,'Mary Quaint') <br>
+share(015467,'Vivienne Eastwood)</strong></li>
+<li>Schemas are similar to types and variables, instances are similar to variable values (i.e., they change over time)</li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="2sy3" id="what-different-types-of-database-language-there-are">What different types of database language there are?</h2><ul data-anchor-id="teyy">
+<li>There are different kinds of database language: <br>
+<ul><li>DDL: Data Definition Language</li>
+<li>DML: Data Manipulation Language</li>
+<li>(D)QL: Query Language</li></ul></li>
+<li>Again, the terminology is not crisp: <br>
+<ul><li>Sometimes, no special DDL</li>
+<li>Often, QL is not distinguished from DML</li></ul></li>
+<li>The DDL updates the data dictionary</li>
+<li>It is a declaration language, it defines the schema (i.e., types and constraints)</li>
+<li>The DML updates the database</li>
+<li>It is a state-transition language, it changes values (e.g., rows and columns)</li>
+<li>The QL is a pure expression language, evaluation returns values without changing the database instance</li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="y6w5" id="why-are-different-types-of-database-language-needed">Why are different types of database language needed?</h2><ul data-anchor-id="l2h8">
+<li>The main advantage of this approach is enforcing separation of concerns, e.g. <br>
+<ul><li>DDL is enterprise-wide, for all applications</li>
+<li>DML is for reflecting changes in state</li>
+<li>QL is for retrieving information</li>
+<li>The lack of assignment makes QL easier to rewrite for optimization purposes</li></ul></li>
+<li>In practice, the distinction is not often enforced.</li>
+<li>SQL⊇DDL∪DML∪QL</li>
+<li>SQL has become extremely expressive with modern extensions.</li>
+</ul><div class="md-section-divider"></div><h2 data-anchor-id="hog7" id="in-the-next-lecture">In the Next Lecture</h2><ul data-anchor-id="fthh">
+<li>We'll have a closer look at the internal architecture of a DBMS.</li>
+<li>We'll also look at the various ways in which DBMSs can be deployed in very large scales.</li>
+</ul></div>
+</body>
+</html>
